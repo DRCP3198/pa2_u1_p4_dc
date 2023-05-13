@@ -18,4 +18,8 @@ public class Pa2U1P4DcApplication implements CommandLineRunner {
 		System.out.println("Mi primer proyecto");
 	}
 
+	/* Spring Framework:
+	 * Permite a construccion/ desarrollo de aplicaciones empresariales
+	 * basadas en Spring.
+	 */
 }
