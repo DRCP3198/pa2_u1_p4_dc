@@ -31,7 +31,8 @@ public class CuentaServiceImpl implements CuentaService{
 
 	@Override
 	public Cuenta encontrar(String numero) {
-		
+		//Solo cuando hace calculos es necesario llamar al service
+		//cuando no los hace se llama al Repository
 		return this.cuentaRepo.buscar(numero);
 	}
 
