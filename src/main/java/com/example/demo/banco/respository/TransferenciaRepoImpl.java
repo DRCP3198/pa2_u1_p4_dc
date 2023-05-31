@@ -48,4 +48,10 @@ public class TransferenciaRepoImpl implements TransferenciaRepo{
 		return transEncontrado;
 	}
 
+	@Override
+	public List<Transferencia> buscarTodos() {
+		// TODO Auto-generated method stub
+		return baseDatos;
+	}
+
 }

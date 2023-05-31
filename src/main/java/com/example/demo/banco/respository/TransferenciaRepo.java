@@ -1,5 +1,7 @@
 package com.example.demo.banco.respository;
 
+import java.util.List;
+
 import com.example.demo.banco.respository.modelo.Transferencia;
 
 public interface TransferenciaRepo {
@@ -8,5 +10,6 @@ public interface TransferenciaRepo {
     public void actualizar(Transferencia transferencia);
     public void eliminar(String numero);
     public Transferencia buscar(String numero);
+    public List<Transferencia> buscarTodos();
 
 }

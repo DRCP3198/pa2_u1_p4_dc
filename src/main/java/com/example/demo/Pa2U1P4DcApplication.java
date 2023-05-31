@@ -8,11 +8,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.banco.respository.modelo.Cuenta;
+import com.example.demo.banco.respository.modelo.Transferencia;
+import com.example.demo.banco.service.CalculoMontoDebitarService;
 import com.example.demo.banco.service.CuentaService;
 import com.example.demo.banco.service.TransferenciaService;
 import com.example.demo.modelo.Estudiante;
@@ -24,7 +27,13 @@ public class Pa2U1P4DcApplication implements CommandLineRunner {
 	@Autowired
 	private CuentaService  cuentaService;
 	@Autowired
+	
 	private TransferenciaService transferenciaService;
+	
+	@Autowired
+	@Qualifier("internacional")
+	private CalculoMontoDebitarService calculoMontoDebitarService;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U1P4DcApplication.class, args);
@@ -53,8 +62,13 @@ public class Pa2U1P4DcApplication implements CommandLineRunner {
 	System.out.println("SALDO ORIGEN "+ this.cuentaService.encontrar("121212").getSaldo());
 	System.out.println("SALDO DESTINO "+this.cuentaService.encontrar("12345").getSaldo());
 	
-	
-	
+	/*List<Transferencia> a= this.transferenciaService.estadoCuenta();
+	for (Transferencia transferencia : a) {
+		System.out.println("Registro " +transferencia.getOrigen());
+		//Reporte que tenga registro ctaO ctaD Fecha 
+		System.out.println("Registro1 " +"CtaOrigen: "+transferencia.getOrigen()+" CtaDesti: "+transferencia.getDestino()+" fecha: "+transferencia.getFecha()   );
+	}*/
+
 	
 	}
 
