@@ -5,11 +5,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.banco.respository.CuentaRepo;
 import com.example.demo.banco.respository.TransferenciaRepo;
 import com.example.demo.banco.respository.modelo.Cuenta;
+import com.example.demo.banco.respository.modelo.Impuesto;
 import com.example.demo.banco.respository.modelo.Transferencia;
 
 @Service
@@ -20,11 +22,17 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 	
 	@Autowired 
 	private CuentaRepo  cuentaRepo;
+	
+	@Autowired 
+	private Impuesto impuesto;
 	@Autowired
+	@Qualifier("internacional")
 	private CalculoMontoDebitarService calculoMontoDebitarService;
 	
 	@Override
 	public void agregar(Transferencia transferencia) {
+		System.out.println("Aqui se va a calcuar el impuesto");
+		System.out.println(this.impuesto.getIva_big());
 		this.transferenciaRepo.insertar(transferencia);
 		
 	}
